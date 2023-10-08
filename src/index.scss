@@ -13,3 +13,11 @@ body {
   max-width: 1080px;
   margin: 50px auto;
 }
+
+header {
+  border-bottom: 1px solid #eaeaea;
+  h3,
+  p {
+    margin: 0;
+  }
+}
