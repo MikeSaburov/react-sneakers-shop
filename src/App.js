@@ -6,7 +6,7 @@ function App() {
           <img width={40} height={40} src="/img/logo.png" alt="Логотип" />
           <div>
             <h3 className="text-uppercase">React Sneackers</h3>
-            <p>Магазин лучших кроссовок</p>
+            <p className="opacity-5">Магазин лучших кроссовок</p>
           </div>
         </div>
 
