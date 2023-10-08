@@ -26,7 +26,7 @@ function App() {
         </ul>
       </header>
       <div className="content p-40">
-        <h1>Все кроссовки</h1>
+        <h1 className="mb-40">Все кроссовки</h1>
         <div className="card">
           <img
             width={133}
@@ -34,13 +34,13 @@ function App() {
             src="img/sneakers/1.jpg"
             alt="Кроссовки"
           />
-          <p></p>
-          <div>
-            <div>
+          <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
+          <div className="d-flex justify-between align-center">
+            <div className="d-flex flex-column ">
               <span>Цена:</span>
               <b>12 999 руб</b>
             </div>
-            <button>
+            <button className="button">
               <img width={11} height={11} src="/img/plus.svg" alt="Добавить" />
             </button>
           </div>
