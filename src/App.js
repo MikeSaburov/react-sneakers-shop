@@ -22,7 +22,16 @@ function App() {
       </header>
       <div className="content p-40">
         <h1>Все кроссовки</h1>
-        ...
+        <div className="card">
+          <img src="" alt="" />
+          <p></p>
+          <div>
+            <div>
+              <span>Цена:</span>
+              <b>12 999 руб</b>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
