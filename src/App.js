@@ -1,7 +1,9 @@
+import Card from './components/Card';
+
 function App() {
   return (
     <div className="wrapper clear">
-      <aside className="overlay">
+      <aside style={{ display: 'none' }} className="overlay">
         <div className="drawer">
           <h2 className=" d-flex justify-between mb-30 ">
             Корзина{' '}
@@ -108,33 +110,8 @@ function App() {
             <input type="text" placeholder="Поиск..." />
           </div>
         </div>
-        <div className="d-flex">
-          <div className="card">
-            <div className="favorite">
-              <img src="/img/unfavorites.svg" alt="Не в закладках" />
-            </div>
-            <img
-              width={133}
-              height={112}
-              src="img/sneakers/1.jpg"
-              alt="Кроссовки"
-            />
-            <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
-            <div className="d-flex justify-between align-center">
-              <div className="d-flex flex-column ">
-                <span>Цена:</span>
-                <b>12 999 руб</b>
-              </div>
-              <button className="button">
-                <img
-                  width={11}
-                  height={11}
-                  src="/img/plus.svg"
-                  alt="Добавить"
-                />
-              </button>
-            </div>
-          </div>
+        <div className="d-flex justify-between">
+          <Card />
           <div className="card">
             <img
               width={133}
