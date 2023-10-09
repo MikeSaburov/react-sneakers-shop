@@ -40,6 +40,9 @@ function App() {
         </div>
         <div className="cardBlock">
           <div className="card">
+            <div className="favorite">
+              <img src="/img/unfavorites.svg" alt="Не в закладках" />
+            </div>
             <img
               width={133}
               height={112}
