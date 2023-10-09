@@ -116,6 +116,16 @@ header {
     margin: 0;
     font-size: 24px;
   }
+
+  .removeBtn {
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.15s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
   .cartItem {
     border: 1px solid #f3f3f3;
     border-radius: 20px;
@@ -137,16 +147,6 @@ header {
     }
     b {
       font-size: 14px;
-    }
-
-    .removeBtn {
-      opacity: 0.5;
-      cursor: pointer;
-      transition: opacity 0.15s ease-in-out;
-
-      &:hover {
-        opacity: 1;
-      }
     }
   }
 }
