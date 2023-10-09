@@ -120,6 +120,29 @@ function App() {
               </button>
             </div>
           </div>
+          <div className="card">
+            <img
+              width={133}
+              height={112}
+              src="img/sneakers/5.jpg"
+              alt="Кроссовки"
+            />
+            <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
+            <div className="d-flex justify-between align-center">
+              <div className="d-flex flex-column ">
+                <span>Цена:</span>
+                <b>12 999 руб</b>
+              </div>
+              <button className="button">
+                <img
+                  width={11}
+                  height={11}
+                  src="/img/plus.svg"
+                  alt="Добавить"
+                />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
