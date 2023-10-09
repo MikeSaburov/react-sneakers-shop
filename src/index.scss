@@ -6,6 +6,10 @@ body {
   background: #e7f6ff;
 }
 
+* {
+  font-family: 'Inter', system-ui;
+}
+
 .wrapper {
   background: #ffffff;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
@@ -27,6 +31,20 @@ header {
     margin: 0;
   }
 }
+
+.searchBlock {
+  border: 1px solid #f3f3f3;
+  border-radius: 10px;
+  padding: 0 15px;
+
+  input {
+    border: 0;
+    padding: 13px;
+    font-size: 16px;
+    width: 200px;
+  }
+}
+
 .cardBlock {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
