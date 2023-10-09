@@ -27,7 +27,7 @@ function App() {
       </header>
       <div className="content p-40">
         <h1 className="mb-40">Все кроссовки</h1>
-        <div className="d-flex justify-between">
+        <div className="cardBlock">
           <div className="card">
             <img
               width={133}

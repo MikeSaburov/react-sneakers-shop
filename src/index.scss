@@ -27,6 +27,10 @@ header {
     margin: 0;
   }
 }
+.cardBlock {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
 
 .card {
   border: 1px solid #f3f3f3;
