@@ -1,6 +1,6 @@
-const Card = () => {
+export const Card = () => {
   return (
-    <div className="card">
+    <div className="card mr-30">
       <div className="favorite">
         <img src="/img/unfavorites.svg" alt="Не в закладках" />
       </div>
@@ -18,5 +18,3 @@ const Card = () => {
     </div>
   );
 };
-
-export default Card;
