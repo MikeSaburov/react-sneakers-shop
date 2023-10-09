@@ -3,23 +3,42 @@ function App() {
     <div className="wrapper clear">
       <aside className="overlay">
         <div className="drawer">
-          <h2>Корзина</h2>
-          <div className="cartItem d-flex align-center">
-            <div
-              style={{ backgroundImage: 'url(/img/sneakers/1.jpg)' }}
-              className="cartItemImg"
-            ></div>
-            <div className="mr-20 ">
-              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-              <b>12 990 руб.</b>
+          <h2 className="mb-20">Корзина</h2>
+          <div className="items">
+            <div className="cartItem d-flex align-center mb-20">
+              <div
+                style={{ backgroundImage: 'url(/img/sneakers/1.jpg)' }}
+                className="cartItemImg"
+              ></div>
+              <div className="mr-20 ">
+                <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
+                <b>12 990 руб.</b>
+              </div>
+              <img
+                className="removeBtn"
+                width={32}
+                height={32}
+                src="/img/remove.svg"
+                alt="Удалить из корзины"
+              />
             </div>
-            <img
-              className="removeBtn"
-              width={32}
-              height={32}
-              src="/img/remove.svg"
-              alt="Удалить из корзины"
-            />
+            <div className="cartItem d-flex align-center mb-20">
+              <div
+                style={{ backgroundImage: 'url(/img/sneakers/1.jpg)' }}
+                className="cartItemImg"
+              ></div>
+              <div className="mr-20 ">
+                <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
+                <b>12 990 руб.</b>
+              </div>
+              <img
+                className="removeBtn"
+                width={32}
+                height={32}
+                src="/img/remove.svg"
+                alt="Удалить из корзины"
+              />
+            </div>
           </div>
         </div>
       </aside>
@@ -61,7 +80,7 @@ function App() {
             <input type="text" placeholder="Поиск..." />
           </div>
         </div>
-        <div className="cardBlock">
+        <div className="d-flex">
           <div className="card">
             <div className="favorite">
               <img src="/img/unfavorites.svg" alt="Не в закладках" />
@@ -139,29 +158,6 @@ function App() {
               width={133}
               height={112}
               src="img/sneakers/4.jpg"
-              alt="Кроссовки"
-            />
-            <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
-            <div className="d-flex justify-between align-center">
-              <div className="d-flex flex-column ">
-                <span>Цена:</span>
-                <b>12 999 руб</b>
-              </div>
-              <button className="button">
-                <img
-                  width={11}
-                  height={11}
-                  src="/img/plus.svg"
-                  alt="Добавить"
-                />
-              </button>
-            </div>
-          </div>
-          <div className="card">
-            <img
-              width={133}
-              height={112}
-              src="img/sneakers/5.jpg"
               alt="Кроссовки"
             />
             <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
