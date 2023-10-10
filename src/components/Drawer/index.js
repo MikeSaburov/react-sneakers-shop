@@ -1,13 +1,11 @@
-import styles from './Drawer.module.scss';
-
 export const Drawer = (props) => {
   return (
-    <aside className={styles.overlay}>
-      <div className={styles.drawer}>
-        <h2 className=" d-flex justify-between mb-30 ">
+    <aside className="overlay">
+      <div className="drawer">
+        <h2 className="d-flex justify-between mb-30 ">
           Корзина
           <img
-            className={(styles.removeBtn, 'cu-p')}
+            className="removeBtn cu-p"
             width={32}
             height={32}
             src="/img/remove.svg"
@@ -16,18 +14,18 @@ export const Drawer = (props) => {
           />
         </h2>
 
-        <div className={styles.items}>
-          <div className={(styles.cartItem, ' d-flex align-center mb-20')}>
+        <div className="items">
+          <div className="cartItem d-flex align-center mb-20">
             <div
-              style={{ backgroundImage: `url(/img/sneakers/1.jpg)` }}
-              className={styles.cartItemImg}
+              style={{ backgroundImage: 'url(/img/sneakers/1.jpg)' }}
+              className="cartItemImg"
             ></div>
             <div className="mr-20 ">
               <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
               <b>12 990 руб.</b>
             </div>
             <img
-              className={styles.removeBtn}
+              className="removeBtn"
               width={32}
               height={32}
               src="/img/remove.svg"
@@ -35,7 +33,7 @@ export const Drawer = (props) => {
             />
           </div>
         </div>
-        <div className={styles.cartTotalBlock}>
+        <div className="cartTotalBlock">
           <ul>
             <li>
               <span>Итого:</span>
@@ -48,7 +46,7 @@ export const Drawer = (props) => {
               <b>1074 руб. </b>
             </li>
           </ul>
-          <button className={styles.greenButton}>
+          <button className="greenButton">
             Оформить заказ{' '}
             <img width={14} height={12} src="/img/arrow.svg" alt="Стрелка" />
           </button>
