@@ -1,4 +1,8 @@
 export const Card = (props) => {
+  const onClickPlus = () => {
+    alert(props.title);
+  };
+
   return (
     <div className="card mr-30">
       <div className="favorite">
@@ -11,7 +15,7 @@ export const Card = (props) => {
           <span>Цена:</span>
           <b>{props.price} руб.</b>
         </div>
-        <button className="button">
+        <button onClick={onClickPlus} className="button">
           <img width={11} height={11} src="/img/plus.svg" alt="Добавить" />
         </button>
       </div>
