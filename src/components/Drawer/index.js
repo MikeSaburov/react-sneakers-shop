@@ -1,8 +1,8 @@
 import styles from './Drawer.module.scss';
 
-export const Drawer = () => {
+export const Drawer = (props) => {
   return (
-    <aside style={{ display: 'none' }} className={styles.overlay}>
+    <aside className={styles.overlay}>
       <div className={styles.drawer}>
         <h2 className=" d-flex justify-between mb-30 ">
           Корзина
@@ -12,6 +12,7 @@ export const Drawer = () => {
             height={32}
             src="/img/remove.svg"
             alt="Удалить"
+            onClick={props.onClose}
           />
         </h2>
 
