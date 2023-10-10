@@ -1,5 +1,4 @@
 import styles from './Header.module.scss';
-console.log(styles);
 
 export const Header = () => {
   return (
@@ -14,7 +13,13 @@ export const Header = () => {
 
       <ul className="d-flex">
         <li className="mr-30">
-          <img width={18} height={18} src="/img/cart.svg" alt="Корзина" />
+          <img
+            width={18}
+            height={18}
+            src="/img/cart.svg"
+            alt="Корзина"
+            className={styles.openCart}
+          />
           <span>1205 руб.</span>
         </li>
         <li>
