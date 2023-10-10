@@ -1,4 +1,4 @@
-export const Drawer = (props) => {
+export const Drawer = ({ onClose, items = [] }) => {
   return (
     <aside className="overlay">
       <div className="drawer">
@@ -10,28 +10,30 @@ export const Drawer = (props) => {
             height={32}
             src="/img/remove.svg"
             alt="Удалить"
-            onClick={props.onClose}
+            onClick={onClose}
           />
         </h2>
 
         <div className="items">
-          <div className="cartItem d-flex align-center mb-20">
-            <div
-              style={{ backgroundImage: 'url(/img/sneakers/1.jpg)' }}
-              className="cartItemImg"
-            ></div>
-            <div className="mr-20 ">
-              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-              <b>12 990 руб.</b>
+          {items.map((obj) => (
+            <div className="cartItem d-flex align-center mb-20">
+              <div
+                style={{ backgroundImage: `url(${obj.imgUrl}` }}
+                className="cartItemImg"
+              ></div>
+              <div className="mr-20 ">
+                <p className="mb-5">{obj.title}</p>
+                <b>{obj.price} руб.</b>
+              </div>
+              <img
+                className="removeBtn"
+                width={32}
+                height={32}
+                src="/img/remove.svg"
+                alt="Удалить"
+              />
             </div>
-            <img
-              className="removeBtn"
-              width={32}
-              height={32}
-              src="/img/remove.svg"
-              alt="Удалить"
-            />
-          </div>
+          ))}
         </div>
         <div className="cartTotalBlock">
           <ul>
