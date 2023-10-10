@@ -1,9 +1,8 @@
 import styles from './Drawer.module.scss';
-console.log(styles);
-//style={{ display: 'none' }}
+
 export const Drawer = () => {
   return (
-    <aside className={styles.overlay}>
+    <aside style={{ display: 'none' }} className={styles.overlay}>
       <div className={styles.drawer}>
         <h2 className=" d-flex justify-between mb-30 ">
           Корзина
@@ -19,7 +18,7 @@ export const Drawer = () => {
         <div className={styles.items}>
           <div className={(styles.cartItem, ' d-flex align-center mb-20')}>
             <div
-              style={{ backgroundImage: 'url(/img/sneakers/1.jpg)' }}
+              style={{ backgroundImage: `url(/img/sneakers/1.jpg)` }}
               className={styles.cartItemImg}
             ></div>
             <div className="mr-20 ">
