@@ -1,4 +1,4 @@
-export const Drawer = ({ onClose, items = [] }) => {
+export const Drawer = ({ onClose, items = [], onRemove }) => {
   return (
     <aside className="overlay">
       <div className="drawer">
@@ -13,6 +13,21 @@ export const Drawer = ({ onClose, items = [] }) => {
             onClick={onClose}
           />
         </h2>
+
+        <div className=" cartEmpty d-flex align-center justify-center flex-column flex">
+          <img
+            className="mb-20"
+            width={120}
+            height={120}
+            src="/img/emptyCart.svg"
+            alt="Пустая корзина"
+          />
+          <h2>Корзина пустая</h2>
+          <p className="opacity-6">Добавьте хоть одну пару кроссовок</p>
+          <button className="greenButton">
+            <img src="/img/arrow.svg" alt="" />
+          </button>
+        </div>
 
         <div className="items">
           {items.map((obj) => (
@@ -31,6 +46,7 @@ export const Drawer = ({ onClose, items = [] }) => {
                 height={32}
                 src="/img/remove.svg"
                 alt="Удалить"
+                onClick={() => onRemove(obj.id)}
               />
             </div>
           ))}
