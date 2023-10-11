@@ -1,26 +1,32 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Card } from './components/Card';
 import { Header } from './components/Header';
 import { Drawer } from './components/Drawer';
 
 function App() {
   const [items, setItems] = useState([]);
-  const [cartItems, setcartItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
   const [searchValue, setSearchValue] = useState('');
   const [cartOpened, setCartOpened] = useState(false);
 
   useEffect(() => {
-    fetch('https://6524f95067cfb1e59ce654b0.mockapi.io/items')
+    axios
+      .get('https://6524f95067cfb1e59ce654b0.mockapi.io/items')
       .then((res) => {
-        return res.json();
-      })
-      .then((json) => {
-        setItems(json);
+        setItems(res.data);
+      });
+
+    axios
+      .get('https://6524f95067cfb1e59ce654b0.mockapi.io/cart')
+      .then((res) => {
+        setCartItems(res.data);
       });
   }, []);
 
   const onAddToCart = (obj) => {
-    setcartItems((prev) => [...prev, obj]);
+    axios.post('https://6524f95067cfb1e59ce654b0.mockapi.io/cart', obj);
+    setCartItems((prev) => [...prev, obj]);
   };
 
   const onChangeSearchInput = (event) => {
