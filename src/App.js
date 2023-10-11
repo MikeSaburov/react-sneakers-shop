@@ -44,6 +44,7 @@ function App() {
         <div className="d-flex flex-wrap">
           {items.map((item) => (
             <Card
+              key={item.imgUrl} //Здесь взял за key ссылку на изображение, т.к. это единственное уникальное значение
               title={item.title}
               price={item.price}
               imgUrl={item.imgUrl}
