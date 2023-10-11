@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 export const Drawer = ({ onClose, items = [] }) => {
   return (
     <aside className="overlay">
