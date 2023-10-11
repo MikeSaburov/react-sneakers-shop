@@ -32,6 +32,15 @@ body {
   padding: 0 15px;
   position: relative;
 
+  .clear {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 13px;
+    right: 10px;
+    cursor: pointer;
+  }
+
   input {
     border: 0;
     padding: 13px;
