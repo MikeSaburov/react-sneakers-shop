@@ -239,10 +239,6 @@ header {
 //Media queries
 
 @media (max-width: 768px) {
-  .nameShop {
-    display: none !important;
-  }
-
   .titleCardBlock {
     h1 {
       font-size: 24px;
@@ -261,6 +257,14 @@ header {
 }
 
 @media (max-width: 640px) {
+  .nameShop {
+    h3 {
+      font-size: 16px;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
   .titleCardBlock {
     h1 {
       font-size: 16px;
@@ -269,5 +273,11 @@ header {
     input {
       width: 130px;
     }
+  }
+}
+
+@media (max-width: 640px) {
+  .nameShop {
+    display: none !important;
   }
 }
