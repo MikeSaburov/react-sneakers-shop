@@ -4,6 +4,7 @@ import { Header } from './components/Header';
 import { Drawer } from './components/Drawer';
 import { Route, Routes } from 'react-router-dom';
 import { Home } from './pages/Home';
+import { Favorites } from './pages/Favorites';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -64,11 +65,12 @@ function App() {
               searchValue={searchValue}
               setSearchValue={setSearchValue}
               onAddToCart={onAddToCart}
-              oonAddToFavorite={onAddToFavorite}
+              onAddToFavorite={onAddToFavorite}
               onChangeSearchInput={onChangeSearchInput}
             />
           }
         ></Route>
+        <Route path="favorites" element={<Favorites />} />
       </Routes>
     </div>
   );
