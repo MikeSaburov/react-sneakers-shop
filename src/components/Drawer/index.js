@@ -6,10 +6,10 @@ export const Drawer = ({ onClose, items = [], onRemove }) => {
           Корзина
           <img
             className="removeBtn cu-p"
-            width={32}
-            height={32}
-            src="/img/remove.svg"
-            alt="Удалить"
+            width={24}
+            height={24}
+            src="/img/close.svg"
+            alt="Закрыть корзину"
             onClick={onClose}
           />
         </h2>
