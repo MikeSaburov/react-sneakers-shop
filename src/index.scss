@@ -92,7 +92,8 @@ header {
   justify-content: space-evenly;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  column-gap: 40px;
+  row-gap: 40px;
 }
 
 //Корзина
@@ -237,6 +238,12 @@ header {
 }
 
 //Media queries
+
+@media (max-width: 1080px) {
+  .cardBlock {
+    column-gap: 30px;
+  }
+}
 
 @media (max-width: 768px) {
   .titleCardBlock {
