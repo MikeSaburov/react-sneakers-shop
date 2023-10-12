@@ -16,6 +16,10 @@ export const Header = (props) => {
           <img width={18} height={18} src="/img/cart.svg" alt="Корзина" />
           <span>1205 руб.</span>
         </li>
+        <li className={styles.favorite} onClick={() => null}>
+          <img width={18} height={18} src="/img/heart.svg" alt="Закладки" />
+          <span>Закладки</span>
+        </li>
         <li>
           <img width={18} height={18} src="/img/user.svg" alt="Пользователь" />
         </li>
