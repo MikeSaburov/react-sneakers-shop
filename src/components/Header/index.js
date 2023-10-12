@@ -1,4 +1,3 @@
-import styles from './Header.module.scss';
 import { Link } from 'react-router-dom';
 
 export const Header = (props) => {
@@ -7,7 +6,7 @@ export const Header = (props) => {
       <Link to="/">
         <div className="d-flex align-center">
           <img width={40} height={40} src="/img/logo.png" alt="Логотип" />
-          <div>
+          <div className="nameShop">
             <h3 className="text-uppercase">React Sneackers</h3>
             <p className="opacity-5">Магазин лучших кроссовок</p>
           </div>
@@ -15,11 +14,11 @@ export const Header = (props) => {
       </Link>
 
       <ul className="d-flex">
-        <li className={styles.openCart} onClick={props.onClickCart}>
+        <li className="openCart" onClick={props.onClickCart}>
           <img width={18} height={18} src="/img/cart.svg" alt="Корзина" />
           <span>1205 руб.</span>
         </li>
-        <li className={styles.favorite} onClick={() => null}>
+        <li className="favorite" onClick={() => null}>
           <Link to="/favorites">
             <img width={18} height={18} src="/img/heart.svg" alt="Закладки" />
             <span>Закладки</span>

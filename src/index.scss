@@ -20,10 +20,50 @@ body {
   margin-top: 20px;
 }
 
+//Header
+header {
+  border-bottom: 1px solid #eaeaea;
+  h3,
+  p {
+    margin: 0;
+  }
+
+  .openCart {
+    cursor: pointer;
+    margin-right: 30px;
+    img {
+      margin-right: 10px;
+    }
+  }
+
+  .favorite {
+    margin-right: 30px;
+    color: #5c5c5c;
+    cursor: pointer;
+    font-style: 14px;
+
+    span {
+      padding-left: 5px;
+    }
+
+    &:hover {
+      color: #000;
+    }
+  }
+}
+//Header
+
 .content {
   h1 {
     margin: 0;
   }
+}
+
+.titleCardBlock {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  justify-content: space-between;
 }
 
 .searchBlock {
@@ -48,8 +88,14 @@ body {
     width: 200px;
   }
 }
+.cardBlock {
+  justify-content: space-evenly;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
-//Cart style
+//Корзина
 .overlay {
   position: fixed;
   left: 0;
@@ -187,5 +233,41 @@ body {
 
   &:hover {
     background: darken($color: #9dd558, $amount: 10%);
+  }
+}
+
+//Media queries
+
+@media (max-width: 768px) {
+  .nameShop {
+    display: none !important;
+  }
+
+  .titleCardBlock {
+    h1 {
+      font-size: 24px;
+    }
+
+    input {
+      width: 150px;
+    }
+  }
+
+  .favorite {
+    span {
+      display: none !important;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .titleCardBlock {
+    h1 {
+      font-size: 16px;
+    }
+
+    input {
+      width: 130px;
+    }
   }
 }

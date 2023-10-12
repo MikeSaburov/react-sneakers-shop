@@ -10,7 +10,7 @@ export const Home = ({
 }) => {
   return (
     <div className="content p-40">
-      <div className="d-flex align-center mb-40 justify-between">
+      <div className="titleCardBlock">
         <h1>
           {searchValue ? `Поиск по запросу: ${searchValue}` : ' Все кроссовки'}
         </h1>
@@ -33,14 +33,14 @@ export const Home = ({
           />
         </div>
       </div>
-      <div className="d-flex flex-wrap">
+      <div className="cardBlock">
         {items
           .filter((item) =>
             item.title.toLowerCase().includes(searchValue.toLowerCase())
           )
           .map((item, id) => (
             <Card
-              key={item.id} //Здесь взял за key ссылку на изображение, т.к. это единственное уникальное значение
+              key={item.id}
               {...item}
               onFavorite={(obj) => onAddToFavorite(obj)}
               onAddCart={(obj) => onAddToCart(obj)}
