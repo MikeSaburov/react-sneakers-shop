@@ -51,7 +51,7 @@ body {
 
 //Cart style
 .overlay {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   background: rgba(0, 0, 0, 0.1);
@@ -88,6 +88,26 @@ body {
       opacity: 1;
     }
   }
+  .cartEmpty {
+    text-align: center;
+
+    .greenButton {
+      position: relative;
+
+      &:hover {
+        img {
+          transform: translateX(-5px);
+        }
+      }
+      img {
+        position: absolute;
+        left: 30px;
+        top: 20px;
+        transition: transform 0.15s ease-in-out;
+      }
+    }
+  }
+
   .cartItem {
     border: 1px solid #f3f3f3;
     border-radius: 20px;
@@ -130,24 +150,6 @@ body {
       margin: 0 7px;
     }
   }
-
-  .greenButton {
-    width: 100%;
-    height: 55px;
-    background: #9dd558;
-    border-radius: 18px;
-    border: 0;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.2s ease-in-out;
-
-    &:hover {
-      background: darken($color: #9dd558, $amount: 10%);
-    }
-  }
-
   .greenButton {
     position: relative;
 
@@ -162,5 +164,22 @@ body {
       top: 20px;
       transition: transform 0.15s ease-in-out;
     }
+  }
+}
+
+.greenButton {
+  width: 100%;
+  height: 55px;
+  background: #9dd558;
+  border-radius: 18px;
+  border: 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+
+  &:hover {
+    background: darken($color: #9dd558, $amount: 10%);
   }
 }

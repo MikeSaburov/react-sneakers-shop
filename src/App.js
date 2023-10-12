@@ -7,6 +7,7 @@ import { Drawer } from './components/Drawer';
 function App() {
   const [items, setItems] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+  const [favotites, setFavorites] = useState([]);
   const [searchValue, setSearchValue] = useState('');
   const [cartOpened, setCartOpened] = useState(false);
 
@@ -27,6 +28,11 @@ function App() {
   const onAddToCart = (obj) => {
     axios.post('https://6524f95067cfb1e59ce654b0.mockapi.io/cart', obj);
     setCartItems((prev) => [...prev, obj]);
+  }; //Добавляем на сервер товары
+
+  const onAddToFavorite = (obj) => {
+    axios.post('https://65273d4c917d673fd76d83f7.mockapi.io/favorite', obj);
+    setFavorites((prev) => [...prev, obj]);
   };
 
   const onChangeSearchInput = (event) => {
@@ -84,13 +90,14 @@ function App() {
             .filter((item) =>
               item.title.toLowerCase().includes(searchValue.toLowerCase())
             )
-            .map((item) => (
+            .map((item, index) => (
               <Card
-                key={item.imgUrl} //Здесь взял за key ссылку на изображение, т.к. это единственное уникальное значение
+                key={index} //Здесь взял за key ссылку на изображение, т.к. это единственное уникальное значение
                 title={item.title}
                 price={item.price}
                 imgUrl={item.imgUrl}
-                onFavorite={() => console.log('Добавили в закладки')}
+                id={item.id}
+                onFavorite={(obj) => onAddToFavorite(obj)}
                 onAddCart={(obj) => onAddToCart(obj)}
               />
             ))}
