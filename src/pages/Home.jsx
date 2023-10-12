@@ -38,13 +38,10 @@ export const Home = ({
           .filter((item) =>
             item.title.toLowerCase().includes(searchValue.toLowerCase())
           )
-          .map((item, index) => (
+          .map((item, id) => (
             <Card
-              key={index} //Здесь взял за key ссылку на изображение, т.к. это единственное уникальное значение
-              title={item.title}
-              price={item.price}
-              imgUrl={item.imgUrl}
-              id={item.id}
+              key={item.id} //Здесь взял за key ссылку на изображение, т.к. это единственное уникальное значение
+              {...item}
               onFavorite={(obj) => onAddToFavorite(obj)}
               onAddCart={(obj) => onAddToCart(obj)}
             />

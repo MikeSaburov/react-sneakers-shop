@@ -25,6 +25,12 @@ function App() {
       .then((res) => {
         setCartItems(res.data);
       });
+
+    axios
+      .get('https://65273d4c917d673fd76d83f7.mockapi.io/favorite')
+      .then((res) => {
+        setFavorites(res.data);
+      });
   }, []); // Выполняет при первом рендере
 
   const onAddToCart = (obj) => {
@@ -32,18 +38,40 @@ function App() {
     setCartItems((prev) => [...prev, obj]);
   }; //Добавляем на сервер товары
 
-  const onAddToFavorite = (obj) => {
-    axios.post('https://65273d4c917d673fd76d83f7.mockapi.io/favorite', obj);
-    setFavorites((prev) => [...prev, obj]);
+  const onAddToFavorite = async (obj) => {
+    try {
+      if (favorites.find((favObj) => favObj.id === obj.id)) {
+        axios.delete(
+          `https://65273d4c917d673fd76d83f7.mockapi.io/favorite/${obj.id}`
+        );
+        setFavorites((prev) => prev.filter((item) => item.id !== item.id));
+      } else {
+        const { data } = await axios.post(
+          'https://65273d4c917d673fd76d83f7.mockapi.io/favorite',
+          obj
+        );
+        setFavorites((prev) => [...prev, data]);
+      }
+    } catch (error) {
+      alert('Не удалось добавить в Закладки');
+      console.log(error);
+    }
   };
 
   const onChangeSearchInput = (event) => {
     setSearchValue(event.target.value);
   };
 
-  const onRemoveItem = (id) => {
-    axios.delete(`https://6524f95067cfb1e59ce654b0.mockapi.io/cart/${id}`);
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
+  const onRemoveItem = async (id) => {
+    try {
+      await axios.delete(
+        `https://6524f95067cfb1e59ce654b0.mockapi.io/cart/${id}`
+      );
+      setCartItems((prev) => prev.filter((item) => item.id !== id));
+    } catch (error) {
+      console.log(error);
+      alert('Не удалось удалить с корзины');
+    }
   };
 
   return (
@@ -67,10 +95,16 @@ function App() {
               onAddToCart={onAddToCart}
               onAddToFavorite={onAddToFavorite}
               onChangeSearchInput={onChangeSearchInput}
+              exact
             />
           }
         ></Route>
-        <Route path="favorites" element={<Favorites />} />
+        <Route
+          path="/favorites"
+          element={
+            <Favorites items={favorites} onAddToFavorite={onAddToFavorite} />
+          }
+        />
       </Routes>
     </div>
   );

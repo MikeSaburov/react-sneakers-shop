@@ -1,9 +1,17 @@
 import styles from './Card.module.scss';
 import { useState } from 'react';
 
-export const Card = ({ id, imgUrl, title, price, onAddCart, onFavorite }) => {
+export const Card = ({
+  id,
+  imgUrl,
+  title,
+  price,
+  onAddCart,
+  onFavorite,
+  favorited = false,
+}) => {
   const [isAdded, setIsAdded] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(favorited);
 
   const onClickPlus = () => {
     onAddCart({ id, imgUrl, title, price });
