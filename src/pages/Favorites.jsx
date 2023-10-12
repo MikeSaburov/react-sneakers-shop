@@ -7,7 +7,7 @@ export const Favorites = ({ items, onAddToFavorite }) => {
       <div className="d-flex flex-wrap">
         {items.map((item) => (
           <Card
-            key={item.id} //Здесь взял за key ссылку на изображение, т.к. это единственное уникальное значение
+            key={item.id}
             favorited={true}
             onFavorite={onAddToFavorite}
             {...item}
