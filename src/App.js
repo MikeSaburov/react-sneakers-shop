@@ -14,38 +14,55 @@ function App() {
   const [cartOpened, setCartOpened] = useState(false);
 
   useEffect(() => {
-    axios
-      .get('https://6524f95067cfb1e59ce654b0.mockapi.io/items')
-      .then((res) => {
-        setItems(res.data);
-      });
+    async function fetchData() {
+      //Делаем асинхронную функцию для того чтобы сначала грузилась корзина -> закладки-> товары
+      const cartResponse = await axios.get(
+        'https://6524f95067cfb1e59ce654b0.mockapi.io/cart'
+      );
+      const favoritesResponse = await axios.get(
+        'https://65273d4c917d673fd76d83f7.mockapi.io/favorite'
+      );
+      const itemResponse = await axios.get(
+        'https://6524f95067cfb1e59ce654b0.mockapi.io/items'
+      );
 
-    axios
-      .get('https://6524f95067cfb1e59ce654b0.mockapi.io/cart')
-      .then((res) => {
-        setCartItems(res.data);
-      });
+      setCartItems(cartResponse.data);
+      setFavorites(favoritesResponse.data);
+      setItems(itemResponse.data);
+    }
+    fetchData();
+    // axios
+    //   .get('https://6524f95067cfb1e59ce654b0.mockapi.io/items')
+    //   .then((res) => {
+    //     setItems(res.data);
+    //   });
 
-    axios
-      .get('https://65273d4c917d673fd76d83f7.mockapi.io/favorite')
-      .then((res) => {
-        setFavorites(res.data);
-      });
+    // axios
+    //   .get('https://6524f95067cfb1e59ce654b0.mockapi.io/cart')
+    //   .then((res) => {
+    //     setCartItems(res.data);
+    //   });
+
+    // axios
+    //   .get('https://65273d4c917d673fd76d83f7.mockapi.io/favorite')
+    //   .then((res) => {
+    //     setFavorites(res.data);
+    //   });
   }, []); // Выполняет при первом рендере
 
   //Добавляем в корзину товары (и отпавляем на бэкенд)
   const onAddToCart = (obj) => {
-    try {
-      if (cartItems.find((item) => item.id === obj.id)) {
-        setCartItems((prev) => prev.filter((item) => item.id !== obj.id));
-      }
-      // axios
-      //   .post('https://6524f95067cfb1e59ce654b0.mockapi.io/cart', obj)
-      //   .then((res) => setCartItems((prev) => [...prev, res.data]));
-    } catch (error) {
-      alert('Не удалось добавить товар');
-      console.log(error);
+    if (cartItems.find((item) => item.title === obj.title)) {
+      setCartItems((prev) => prev.filter((item) => item.title !== obj.title));
+      console.log(obj);
+    } else {
+      axios
+        .post('https://6524f95067cfb1e59ce654b0.mockapi.io/cart', obj)
+        .then((res) => setCartItems((prev) => [...prev, res.data]));
     }
+    // axios
+    //   .post('https://6524f95067cfb1e59ce654b0.mockapi.io/cart', obj)
+    //   .then((res) => setCartItems((prev) => [...prev, res.data]));
   };
 
   const onAddToFavorite = async (obj) => {
