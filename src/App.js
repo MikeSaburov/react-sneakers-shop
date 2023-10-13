@@ -50,9 +50,6 @@ function App() {
         .then((res) => setCartItems((prev) => [...prev, res.data]));
       console.log(obj);
     }
-    // axios
-    //   .post('https://6524f95067cfb1e59ce654b0.mockapi.io/cart', obj)
-    //   .then((res) => setCartItems((prev) => [...prev, res.data]));
   };
 
   const onAddToFavorite = async (obj) => {
