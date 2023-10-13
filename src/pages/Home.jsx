@@ -45,7 +45,9 @@ export const Home = ({
               {...item}
               onFavorite={(obj) => onAddToFavorite(obj)}
               onAddCart={(obj) => onAddToCart(obj)}
-              added={cartItems.some((obj) => obj.id === item.id)}
+              added={cartItems.some(
+                (obj) => Number(obj.id) === Number(item.id)
+              )}
             />
           ))}
       </div>
