@@ -27,7 +27,6 @@ function App() {
       );
 
       setCartItems(cartResponse.data);
-      console.log(cartResponse.data);
       setFavorites(favoritesResponse.data);
       setItems(itemResponse.data);
     }
@@ -48,7 +47,6 @@ function App() {
       axios
         .post('https://6524f95067cfb1e59ce654b0.mockapi.io/cart', obj)
         .then((res) => setCartItems((prev) => [...prev, res.data]));
-      console.log(obj);
     }
   };
 
