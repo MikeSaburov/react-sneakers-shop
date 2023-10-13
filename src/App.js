@@ -33,11 +33,19 @@ function App() {
       });
   }, []); // Выполняет при первом рендере
 
-  //Добавляем на сервер товары
+  //Добавляем в корзину товары (и отпавляем на бэкенд)
   const onAddToCart = (obj) => {
-    axios
-      .post('https://6524f95067cfb1e59ce654b0.mockapi.io/cart', obj)
-      .then((res) => setCartItems((prev) => [...prev, res.data]));
+    try {
+      if (cartItems.find((item) => item.id === obj.id)) {
+        setCartItems((prev) => prev.filter((item) => item.id !== obj.id));
+      }
+      // axios
+      //   .post('https://6524f95067cfb1e59ce654b0.mockapi.io/cart', obj)
+      //   .then((res) => setCartItems((prev) => [...prev, res.data]));
+    } catch (error) {
+      alert('Не удалось добавить товар');
+      console.log(error);
+    }
   };
 
   const onAddToFavorite = async (obj) => {
