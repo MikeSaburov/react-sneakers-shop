@@ -12,10 +12,12 @@ function App() {
   const [favorites, setFavorites] = useState([]);
   const [searchValue, setSearchValue] = useState('');
   const [cartOpened, setCartOpened] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       //Делаем асинхронную функцию для того чтобы сначала грузилась корзина -> закладки-> товары
+      setIsLoading(true); //делаем что пока идет загрузка то значение true
       const cartResponse = await axios.get(
         'https://6524f95067cfb1e59ce654b0.mockapi.io/cart'
       );
@@ -25,7 +27,7 @@ function App() {
       const itemResponse = await axios.get(
         'https://6524f95067cfb1e59ce654b0.mockapi.io/items'
       );
-
+      setIsLoading(false); //Загрузка выполнилась, занчение = false
       setCartItems(cartResponse.data);
       setFavorites(favoritesResponse.data);
       setItems(itemResponse.data);
@@ -101,6 +103,7 @@ function App() {
               onAddToCart={onAddToCart}
               onAddToFavorite={onAddToFavorite}
               onChangeSearchInput={onChangeSearchInput}
+              isLoading={isLoading}
               exact
             />
           }
