@@ -3,16 +3,16 @@ import { Card } from '../components/Card';
 import AppContext from '../components/context';
 
 export const Favorites = ({ onAddToFavorite }) => {
-  const state = useContext(AppContext);
+  const { favorites } = useContext(AppContext);
 
-  console.log(state);
+  console.log(favorites);
 
   return (
     <div className="content p-40">
       <h1>Мои закладки</h1>
 
       <div className="d-flex flex-wrap">
-        {[].map((item) => (
+        {favorites.map((item) => (
           <Card
             key={item.id}
             favorited={true}
