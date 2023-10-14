@@ -2,7 +2,6 @@ import { Card } from '../components/Card';
 
 export const Home = ({
   items,
-  cartItems,
   searchValue,
   setSearchValue,
   onAddToCart,
@@ -21,7 +20,6 @@ export const Home = ({
         {...item}
         onFavorite={(obj) => onAddToFavorite(obj)}
         onAddCart={(obj) => onAddToCart(obj)}
-        added={cartItems.some((obj) => Number(obj.id) === Number(item.id))}
         loading={isLoading}
       />
     ));

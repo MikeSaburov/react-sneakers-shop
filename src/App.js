@@ -5,7 +5,7 @@ import { Drawer } from './components/Drawer';
 import { Route, Routes } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { Favorites } from './pages/Favorites';
-import AppContext from './components/context';
+import AppContext from './context';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -82,8 +82,12 @@ function App() {
     } catch (error) {}
   };
 
+  const isItemAdded = (id) => {
+    return cartItems.some((obj) => Number(obj.id) === Number(id));
+  };
+
   return (
-    <AppContext.Provider value={{ items, cartItems, favorites }}>
+    <AppContext.Provider value={{ items, cartItems, favorites, isItemAdded }}>
       <div className="wrapper clear">
         {cartOpened && (
           <Drawer
