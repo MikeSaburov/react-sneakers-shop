@@ -1,4 +1,15 @@
+import { Info } from '../Info/Info';
+import { useContext, useState } from 'react';
+import AppContext from '../../context';
+
 export const Drawer = ({ onClose, items = [], onRemove }) => {
+  const { setCartItems } = useContext(AppContext);
+  const [isOrderComplited, setIsOrderComplited] = useState(false);
+
+  const onClickOrder = () => {
+    setIsOrderComplited(true);
+    setCartItems([]);
+  };
   return (
     <aside className="overlay">
       <div className="drawer">
@@ -53,7 +64,7 @@ export const Drawer = ({ onClose, items = [], onRemove }) => {
                   <b>1074 руб. </b>
                 </li>
               </ul>
-              <button className="greenButton">
+              <button onClick={onClickOrder} className="greenButton">
                 Оформить заказ
                 <img
                   width={14}
@@ -65,21 +76,17 @@ export const Drawer = ({ onClose, items = [], onRemove }) => {
             </div>
           </div>
         ) : (
-          <div className=" cartEmpty d-flex align-center justify-center flex-column flex">
-            <img
-              className="mb-20"
-              width={120}
-              height={120}
-              src="/img/emptyCart.svg"
-              alt="Пустая корзина"
-            />
-            <h2>Корзина пустая</h2>
-            <p className="opacity-6">Добавьте хоть одну пару кроссовок</p>
-            <button onClick={onClose} className="greenButton">
-              <img width={14} height={12} src="/img/arrowBack.svg" alt="" />
-              Вернуться назад
-            </button>
-          </div>
+          <Info
+            title={isOrderComplited ? 'Заказ оформлен!' : 'Корзина пустая'}
+            discripton={
+              isOrderComplited
+                ? 'Ваш заказ #18 скоро будет передан курьерской доставке'
+                : 'Добвьте хоть одну пару кроссовок, чтобы сделать заказ'
+            }
+            image={
+              isOrderComplited ? '/img/orderSend.svg' : '/img/emptyCart.svg'
+            }
+          />
         )}
       </div>
     </aside>

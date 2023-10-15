@@ -55,22 +55,26 @@ export const Card = ({
               alt="Закладка"
             />
           </div>
-
-          <img width="100%" height={135} src={imgUrl} alt="Кроссовки" />
-
-          <h5>{title}</h5>
-
-          <div className="d-flex justify-between ">
-            <div className="d-flex flex-column ">
-              <span>Цена:</span>
-              <b>{price} руб.</b>
+          <div className={styles.itemInfo}>
+            <div>
+              <img width="100%" height={135} src={imgUrl} alt="Кроссовки" />
             </div>
-            <img
-              className={styles.plus}
-              onClick={onClickPlus}
-              src={isItemAdded(id) ? '/img/checked.svg' : '/img/btn-plus.svg'}
-              alt="Добавить"
-            />
+            <div className={styles.title}>
+              <h5>{title}</h5>
+            </div>
+
+            <div className={styles.priceBlock}>
+              <div className="d-flex flex-column ">
+                <span>Цена:</span>
+                <b>{price} руб.</b>
+              </div>
+              <img
+                className={styles.plus}
+                onClick={onClickPlus}
+                src={isItemAdded(id) ? '/img/checked.svg' : '/img/btn-plus.svg'}
+                alt="Добавить"
+              />
+            </div>
           </div>
         </>
       )}

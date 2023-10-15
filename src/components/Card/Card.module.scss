@@ -14,7 +14,20 @@
     position: absolute;
     cursor: pointer;
   }
+  .itemInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
+    .title {
+      height: 90px;
+    }
+  }
+
+  .priceBlock {
+    display: flex;
+    justify-content: space-between;
+  }
   .plus {
     cursor: pointer;
   }
