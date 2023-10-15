@@ -16,8 +16,6 @@ export const Card = ({
   const { isItemAdded } = useContext(AppContext);
   const [isFavorite, setIsFavorite] = useState(favorited);
 
-  console.log(title, isItemAdded(id));
-
   const onClickPlus = () => {
     onAddCart({ id, imgUrl, title, price });
     isItemAdded(id);

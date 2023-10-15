@@ -45,11 +45,9 @@ function App() {
       setCartItems((prev) =>
         prev.filter((item) => Number(item.id) !== Number(obj.id))
       );
-      console.log(obj);
     } else {
-      axios
-        .post('https://6524f95067cfb1e59ce654b0.mockapi.io/cart', obj)
-        .then((res) => setCartItems((prev) => [...prev, res.data]));
+      axios.post('https://6524f95067cfb1e59ce654b0.mockapi.io/cart', obj);
+      setCartItems((prev) => [...prev, obj]);
     }
   };
 
