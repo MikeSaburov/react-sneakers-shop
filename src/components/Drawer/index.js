@@ -24,7 +24,7 @@ export const Drawer = ({ onClose, items = [], onRemove }) => {
       setCartItems([]);
 
       //Костыль (проблема mocapi)
-      for (let i = 0; i < setCartItems.length; i++) {
+      for (let i = 0; i < cartItems.length; i++) {
         const item = cartItems[i];
         await axios.delete(
           `https://6524f95067cfb1e59ce654b0.mockapi.io/cart/${item.id}`
