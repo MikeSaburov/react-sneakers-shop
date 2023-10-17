@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { Favorites } from './pages/Favorites';
 import AppContext from './context';
+import { Orders } from './pages/Orders';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -125,6 +126,8 @@ function App() {
             path="/favorites"
             element={<Favorites onAddToFavorite={onAddToFavorite} />}
           />
+
+          <Route path="/orders" element={<Orders />} />
         </Routes>
       </div>
     </AppContext.Provider>

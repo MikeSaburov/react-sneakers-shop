@@ -35,8 +35,15 @@ export const Header = (props) => {
             <span>Закладки</span>
           </Link>
         </li>
-        <li>
-          <img width={18} height={18} src="/img/user.svg" alt="Пользователь" />
+        <li className="orders">
+          <Link to="/orders">
+            <img
+              width={18}
+              height={18}
+              src="/img/user.svg"
+              alt="Пользователь"
+            />
+          </Link>
         </li>
       </ul>
     </header>

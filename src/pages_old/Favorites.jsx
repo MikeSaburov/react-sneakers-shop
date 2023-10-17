@@ -5,6 +5,8 @@ import AppContext from '../context';
 export const Favorites = ({ onAddToFavorite }) => {
   const { favorites } = useContext(AppContext);
 
+  console.log(favorites);
+
   return (
     <div className="content p-40">
       <h1>Мои закладки</h1>
