@@ -11,6 +11,9 @@ export const Drawer = ({ onClose, items = [], onRemove }) => {
   const [isOrderComplited, setIsOrderComplited] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  //Сумма в корзине
+  const totalPrice = cartItems.reduce((summ, obj) => obj.price + summ, 0);
+
   const onClickOrder = async () => {
     try {
       setIsLoading(true);
@@ -66,7 +69,9 @@ export const Drawer = ({ onClose, items = [], onRemove }) => {
                   ></div>
                   <div className="mr-20 ">
                     <p className="mb-5">{obj.title}</p>
-                    <b>{obj.price} руб.</b>
+                    <b>
+                      {new Intl.NumberFormat('ru-RU').format(obj.price)} руб.
+                    </b>
                   </div>
                   <img
                     className="removeBtn"
@@ -84,12 +89,19 @@ export const Drawer = ({ onClose, items = [], onRemove }) => {
                 <li>
                   <span>Итого:</span>
                   <div></div>
-                  <b>21 498 руб. </b>
+                  <b>
+                    {new Intl.NumberFormat('ru-RU').format(totalPrice)} руб.
+                  </b>
                 </li>
                 <li>
                   <span>Налог 5%</span>
                   <div></div>
-                  <b>1074 руб. </b>
+                  <b>
+                    {new Intl.NumberFormat('ru-RU').format(
+                      Math.round((totalPrice / 100) * 5)
+                    )}{' '}
+                    руб.{' '}
+                  </b>
                 </li>
               </ul>
               <button

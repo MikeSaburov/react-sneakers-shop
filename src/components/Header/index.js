@@ -1,6 +1,14 @@
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import AppContext from '../../context';
 
 export const Header = (props) => {
+  const { cartItems } = useContext(AppContext);
+
+  //Сумма в корзине
+  const totalPrice = cartItems.reduce((summ, obj) => obj.price + summ, 0);
+
+  console.log();
   return (
     <header className="d-flex justify-between  align-center p-40">
       <Link to="/">
@@ -16,7 +24,7 @@ export const Header = (props) => {
       <ul className="d-flex">
         <li className="openCart" onClick={props.onClickCart}>
           <img width={18} height={18} src="/img/cart.svg" alt="Корзина" />
-          <span>1205 руб.</span>
+          <span>{new Intl.NumberFormat('ru-RU').format(totalPrice)} руб.</span>
         </li>
         <li className="favorite" onClick={() => null}>
           <Link to="/favorites">

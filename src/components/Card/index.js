@@ -64,7 +64,7 @@ export const Card = ({
             <div className={styles.priceBlock}>
               <div className="d-flex flex-column ">
                 <span>Цена:</span>
-                <b>{price} руб.</b>
+                <b>{new Intl.NumberFormat('ru-RU').format(price)} руб.</b>
               </div>
               <img
                 className={styles.plus}
