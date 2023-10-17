@@ -1,12 +1,15 @@
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
-import AppContext from '../../context';
+//import { useContext } from 'react';
+//import AppContext from '../../context';
+import { useCart } from '../../hooks/useCart';
 
 export const Header = (props) => {
-  const { cartItems } = useContext(AppContext);
+  //const { cartItems } = useContext(AppContext);
 
   //Сумма в корзине
-  const totalPrice = cartItems.reduce((summ, obj) => obj.price + summ, 0);
+  //const totalPrice = cartItems.reduce((summ, obj) => obj.price + summ, 0);
+
+  const { totalPrice } = useCart();
 
   console.log();
   return (

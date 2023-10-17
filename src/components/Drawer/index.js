@@ -1,18 +1,15 @@
 import { Info } from '../Info/Info';
-import { useContext, useState } from 'react';
-import AppContext from '../../context';
+import { useState } from 'react';
 import axios from 'axios';
+import { useCart } from '../../hooks/useCart';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const Drawer = ({ onClose, items = [], onRemove }) => {
-  const { cartItems, setCartItems } = useContext(AppContext);
   const [orderId, setOrderId] = useState(null);
   const [isOrderComplited, setIsOrderComplited] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
-  //Сумма в корзине
-  const totalPrice = cartItems.reduce((summ, obj) => obj.price + summ, 0);
+  const { cartItems, setCartItems, totalPrice } = useCart();
 
   const onClickOrder = async () => {
     try {
