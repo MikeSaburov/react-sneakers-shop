@@ -94,6 +94,8 @@ function App() {
         isItemAdded,
         setCartOpened,
         setCartItems,
+        onAddToCart,
+        onAddToFavorite,
       }}
     >
       <div className="wrapper clear">
@@ -104,6 +106,7 @@ function App() {
             onRemove={onRemoveItem}
           />
         )}
+
         <Header onClickCart={() => setCartOpened(true)} />
         <Routes>
           <Route
