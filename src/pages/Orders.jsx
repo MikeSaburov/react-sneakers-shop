@@ -1,7 +1,7 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card } from '../components/Card';
-import AppContext from '../context';
+//import AppContext from '../context';
 
 export const Orders = () => {
   //const { onAddToFavorite } = useContext(AppContext);
