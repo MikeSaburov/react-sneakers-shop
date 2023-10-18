@@ -18,21 +18,26 @@ function App() {
 
   useEffect(() => {
     async function fetchData() {
-      //Делаем асинхронную функцию для того чтобы сначала грузилась корзина -> закладки-> товары
-      setIsLoading(true); //делаем что пока идет загрузка то значение true
-      const cartResponse = await axios.get(
-        'https://6524f95067cfb1e59ce654b0.mockapi.io/cart'
-      );
-      const favoritesResponse = await axios.get(
-        'https://65273d4c917d673fd76d83f7.mockapi.io/favorite'
-      );
-      const itemResponse = await axios.get(
-        'https://6524f95067cfb1e59ce654b0.mockapi.io/items'
-      );
-      setIsLoading(false); //Загрузка выполнилась, занчение = false
-      setCartItems(cartResponse.data);
-      setFavorites(favoritesResponse.data);
-      setItems(itemResponse.data);
+      try {
+        //Делаем асинхронную функцию для того чтобы сначала грузилась корзина -> закладки-> товары
+        setIsLoading(true); //делаем что пока идет загрузка то значение true
+        const cartResponse = await axios.get(
+          'https://6524f95067cfb1e59ce654b0.mockapi.io/cart'
+        );
+        const favoritesResponse = await axios.get(
+          'https://65273d4c917d673fd76d83f7.mockapi.io/favorite'
+        );
+        const itemResponse = await axios.get(
+          'https://6524f95067cfb1e59ce654b0.mockapi.io/items'
+        );
+        setIsLoading(false); //Загрузка выполнилась, занчение = false
+        setCartItems(cartResponse.data);
+        setFavorites(favoritesResponse.data);
+        setItems(itemResponse.data);
+      } catch (error) {
+        console.log(error);
+        alert('Ошибка при загрузке');
+      }
     }
     fetchData();
   }, []); // Выполняет при первом рендере
