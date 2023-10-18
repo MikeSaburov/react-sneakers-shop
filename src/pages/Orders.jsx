@@ -4,7 +4,7 @@ import { Card } from '../components/Card';
 import AppContext from '../context';
 
 export const Orders = () => {
-  const { onAddToCart, onAddToFavorite } = useContext(AppContext);
+  //const { onAddToFavorite } = useContext(AppContext);
   const [orders, setOrders] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
@@ -27,12 +27,12 @@ export const Orders = () => {
     <div className="content p-40">
       <h1>Мои заказы</h1>
 
-      <div className="d-flex flex-wrap">
-        {orders.map((item, index) => (
+      <div className="d-flex flex-wrap justify-center	">
+        {(isLoading ? [...Array(4)] : orders).map((item, index) => (
           <Card
+            className="d-flex justify-between"
             key={index}
-            onFavorite={(obj) => onAddToFavorite(obj)}
-            onAddCart={(obj) => onAddToCart(obj)}
+            //onFavorite={(obj) => onAddToFavorite(obj)}
             loading={isLoading}
             {...item}
           />

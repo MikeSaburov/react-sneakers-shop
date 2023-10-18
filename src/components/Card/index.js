@@ -18,7 +18,6 @@ export const Card = ({
 
   const onClickPlus = () => {
     onAddCart({ id, imgUrl, title, price });
-    isItemAdded(id);
   };
 
   const onClickFavorite = () => {
@@ -47,11 +46,13 @@ export const Card = ({
       ) : (
         <>
           <div className={styles.favorite}>
-            <img
-              onClick={onClickFavorite}
-              src={isFavorite ? '/img/favorites.svg' : '/img/unfavorites.svg'}
-              alt="Закладка"
-            />
+            {onFavorite && (
+              <img
+                onClick={onClickFavorite}
+                src={isFavorite ? '/img/favorites.svg' : '/img/unfavorites.svg'}
+                alt="Закладка"
+              />
+            )}
           </div>
           <div className={styles.itemInfo}>
             <div>
@@ -66,12 +67,16 @@ export const Card = ({
                 <span>Цена:</span>
                 <b>{new Intl.NumberFormat('ru-RU').format(price)} руб.</b>
               </div>
-              <img
-                className={styles.plus}
-                onClick={onClickPlus}
-                src={isItemAdded(id) ? '/img/checked.svg' : '/img/btn-plus.svg'}
-                alt="Добавить"
-              />
+              {onAddCart && (
+                <img
+                  className={styles.plus}
+                  onClick={onClickPlus}
+                  src={
+                    isItemAdded(id) ? '/img/checked.svg' : '/img/btn-plus.svg'
+                  }
+                  alt="Добавить"
+                />
+              )}
             </div>
           </div>
         </>
