@@ -5,6 +5,7 @@ import AppContext from '../../context';
 
 export const Card = ({
   id,
+  parentId,
   imgUrl,
   title,
   price,
@@ -15,13 +16,14 @@ export const Card = ({
 }) => {
   const { isItemAdded } = useContext(AppContext);
   const [isFavorite, setIsFavorite] = useState(favorited);
+  const itemObj = { id, parentId: +id, imgUrl, title, price };
 
   const onClickPlus = () => {
-    onAddCart({ id, imgUrl, title, price });
+    onAddCart(itemObj);
   };
 
   const onClickFavorite = () => {
-    onFavorite({ id, imgUrl, title, price });
+    onFavorite(itemObj);
     setIsFavorite(!isFavorite);
   };
 
