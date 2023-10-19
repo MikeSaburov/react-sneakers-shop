@@ -36,12 +36,12 @@ export const Home = ({
             <img
               onClick={() => setSearchValue('')}
               className="clear"
-              src="/img/remove.svg"
+              src="img/remove.svg"
               alt="Очистить"
             />
           )}
 
-          <img width={14.25} height={14.25} src="/img/search.svg" alt="Поиск" />
+          <img width={14.25} height={14.25} src="img/search.svg" alt="Поиск" />
           <input
             onChange={onChangeSearchInput}
             value={searchValue}

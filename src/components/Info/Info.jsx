@@ -10,7 +10,7 @@ export const Info = ({ image, title, discripton }) => {
       <h2>{title}</h2>
       <p className="opacity-6">{discripton}</p>
       <button onClick={() => setCartOpened(false)} className="greenButton">
-        <img width={14} height={12} src="img/arrowBack.svg" alt="" />
+        <img width={14} height={12} src="/img/arrowBack.svg" alt="" />
         Вернуться назад
       </button>
     </div>
