@@ -1,11 +1,10 @@
 # React Sneakers Shop
-
 Магазин кроссовок на React (JavaScript)
+
+# DEMO
 [DEMO](https://mikesaburov.github.io/react-sneakers-shop/)
 
-# Адаптивность
 
-Магазин адаптирован под разные разрешения экрана
 
 # Что реализовано
 
