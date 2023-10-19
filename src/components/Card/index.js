@@ -51,7 +51,7 @@ export const Card = ({
             {onFavorite && (
               <img
                 onClick={onClickFavorite}
-                src={isFavorite ? '/img/favorites.svg' : '/img/unfavorites.svg'}
+                src={isFavorite ? 'img/favorites.svg' : 'img/unfavorites.svg'}
                 alt="Закладка"
               />
             )}
