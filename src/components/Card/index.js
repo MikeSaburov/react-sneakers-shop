@@ -51,7 +51,7 @@ export const Card = ({
             {onFavorite && (
               <img
                 onClick={onClickFavorite}
-                src={isFavorite ? '/img/favorites.svg' : '/img/unfavorites.svg'}
+                src={isFavorite ? 'img/favorites.svg' : 'img/unfavorites.svg'}
                 alt="Закладка"
               />
             )}
@@ -73,9 +73,7 @@ export const Card = ({
                 <img
                   className={styles.plus}
                   onClick={onClickPlus}
-                  src={
-                    isItemAdded(id) ? '/img/checked.svg' : '/img/btn-plus.svg'
-                  }
+                  src={isItemAdded(id) ? 'img/checked.svg' : 'img/btn-plus.svg'}
                   alt="Добавить"
                 />
               )}
